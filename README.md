@@ -47,4 +47,4 @@ In the `frontend` directory, run `npm start` (again, you'll need to run `npm ci`
 The frontend will automatically re-compile and reload in your browser if you change any files in the `frontend/src` directory.
 
 ## Github Repo Link
-https://github.ccs.neu.edu/nikitapjethani/cs-4530-covey.git
+https://github.com/nikitajethani/Covey-Town
