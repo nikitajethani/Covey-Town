@@ -34,7 +34,6 @@ export interface TownJoinResponse {
   friendlyName: string;
   /** Is this a private town? * */
   isPubliclyListed: boolean;
-
 }
 
 /**
@@ -203,7 +202,6 @@ export async function townInfoHandler(requestData: TownInfoRequest): Promise<Res
  */
 function townSocketAdapter(socket: Socket): CoveyTownListener {
   return {
-
     onPlayerMoved(movedPlayer: Player) {
       socket.emit('playerMoved', movedPlayer);
     },

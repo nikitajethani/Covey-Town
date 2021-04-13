@@ -1,13 +1,9 @@
 import Player from './Player';
 
-
 /**
  * A listener for player-related events in each town
  */
 export default interface CoveyTownListener {
-
-  // /** The player that is assigned to this listener */
-  // _playerName: string;
 
   /**
    * Called when a player joins a town

@@ -192,7 +192,6 @@ async function GameController(initData: TownJoinResponse,
   const roomName = video.townFriendlyName;
   assert(roomName);
 
-
   const socket = io(url, { auth: { token: sessionToken, coveyTownID: video.coveyTownID } });
   socket.on('newPlayer', (player: ServerPlayer) => {
     dispatchAppUpdate({
@@ -251,7 +250,6 @@ async function GameController(initData: TownJoinResponse,
       players: initData.currentPlayers.map((sp) => Player.fromServerPlayer(sp)),
     },
   });
-
   return true;
 }
 

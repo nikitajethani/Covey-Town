@@ -1,8 +1,4 @@
-// import { Socket } from "socket.io-client";
-
-
 export default class Player {
-
   public location?: UserLocation;
 
   private readonly _id: string;
@@ -13,13 +9,10 @@ export default class Player {
 
   public label?: Phaser.GameObjects.Text;
 
-  // public socket: Socket | null;
-
   constructor(id: string, userName: string, location: UserLocation) {
     this._id = id;
     this._userName = userName;
     this.location = location;
-    // this.socket = null;
   }
 
   get userName(): string {
@@ -29,10 +22,6 @@ export default class Player {
   get id(): string {
     return this._id;
   }
-
-  // set socket(s: Socket) {
-  //   this.socket = s;
-  // }
 
   static fromServerPlayer(playerFromServer: ServerPlayer): Player {
     return new Player(playerFromServer._id, playerFromServer._userName, playerFromServer.location);

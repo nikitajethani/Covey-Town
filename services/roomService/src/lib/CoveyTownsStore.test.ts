@@ -6,9 +6,8 @@ import Player from '../types/Player';
 const mockCoveyListenerTownDestroyed = jest.fn();
 const mockCoveyListenerOtherFns = jest.fn();
 
-function mockCoveyListener(player: Player): CoveyTownListener {
+function mockCoveyListener(): CoveyTownListener {
   return {
-    _player: player,
 
     onPlayerDisconnected(removedPlayer: Player): void {
       mockCoveyListenerOtherFns(removedPlayer);
@@ -21,13 +20,6 @@ function mockCoveyListener(player: Player): CoveyTownListener {
     },
     onPlayerJoined(newPlayer: Player) {
       mockCoveyListenerOtherFns(newPlayer);
-    },
-    onMessageSent(message: string, fromPlayer: Player, toPlayer?: Player) {
-      if (toPlayer === undefined) {
-        mockCoveyListenerOtherFns(message, fromPlayer); 
-      } else {
-        mockCoveyListenerOtherFns(message, fromPlayer, toPlayer); 
-      }
     },
   };
 }
@@ -159,14 +151,10 @@ describe('CoveyTownsStore', () => {
     });
     it('Should disconnect all players', async () => {
       const town = createTownForTesting();
-      const player1 = new Player('nikita');
-      const player2 = new Player('meghan');
-      const player3 = new Player('max');
-      const player4 = new Player('bell');
-      town.addTownListener(mockCoveyListener(player1));
-      town.addTownListener(mockCoveyListener(player2));
-      town.addTownListener(mockCoveyListener(player3));
-      town.addTownListener(mockCoveyListener(player4));
+      town.addTownListener(mockCoveyListener());
+      town.addTownListener(mockCoveyListener());
+      town.addTownListener(mockCoveyListener());
+      town.addTownListener(mockCoveyListener());
       town.disconnectAllPlayers();
 
       expect(mockCoveyListenerOtherFns.mock.calls.length)

@@ -13,9 +13,7 @@ import Chat from '../../../../../Chat/Chat';
 export default function Menu(props: { buttonClassName?: string }) {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const [menuOpen, setMenuOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  // const [chatOpen, setChatOpen] = useState(false);
-  
+  const [settingsOpen, setSettingsOpen] = useState(false);  
 
   const anchorRef = useRef<HTMLButtonElement>(null);
 

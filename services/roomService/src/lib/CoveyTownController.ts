@@ -74,7 +74,6 @@ export default class CoveyTownController {
 
   private _capacity: number;
 
-
   constructor(friendlyName: string, isPubliclyListed: boolean) {
     this._coveyTownID = (process.env.DEMO_TOWN_ID === friendlyName ? friendlyName : friendlyNanoID());
     this._capacity = 50;
@@ -82,7 +81,6 @@ export default class CoveyTownController {
     this._isPubliclyListed = isPubliclyListed;
     this._friendlyName = friendlyName;
   }
-
 
   /**
    * Adds a player to this Covey Town, provisioning the necessary credentials for the
@@ -135,7 +133,6 @@ export default class CoveyTownController {
   addTownListener(listener: CoveyTownListener): void {
     this._listeners.push(listener);
   }
-
 
   /**
    * Unsubscribe from events in this town.
