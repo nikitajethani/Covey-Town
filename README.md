@@ -39,7 +39,7 @@ The backend will automatically restart if you change any of the files in the `se
 
 ### Configuring the frontend
 
-In the `.env` file in the `frontend` directory, make sure the line: `REACT_APP_TOWNS_SERVICE_URL=http://localhost:8081` is there (if you deploy the rooms/towns service to another location, put that location here instead)
+Create an `.env` file in the `frontend` directory, with the line: `REACT_APP_TOWNS_SERVICE_URL=http://localhost:8081` is there (if you deploy the rooms/towns service to another location, put that location here instead)
 
 ### Running the frontend
 
