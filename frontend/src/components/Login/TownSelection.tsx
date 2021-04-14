@@ -66,18 +66,18 @@ export default function TownSelection({ doLogin }: TownSelectionProps): JSX.Elem
         });
         return;
       }
-      if (response.currentPlayers.includes(userName)) {
-        toast({
-          title: 'Unable to join town',
-          description: 'Your username is taken - please select a different username',
-          status: 'error',
-        });
-        return;
-      }
       if (!coveyRoomID || coveyRoomID.length === 0) {
         toast({
           title: 'Unable to join town',
           description: 'Please enter a town ID',
+          status: 'error',
+        });
+        return;
+      }
+      if (response && response.currentPlayers.includes(userName)) {
+        toast({
+          title: 'Unable to join town',
+          description: 'Your username is taken - please select a different username',
           status: 'error',
         });
         return;

@@ -31,8 +31,10 @@ const doLoginMock = jest.fn();
 const mocklistTowns = jest.fn();
 const mockCreateTown = jest.fn();
 const mockVideoSetup = jest.fn();
+const mockTownInfo = jest.fn();
 TownsServiceClient.prototype.listTowns = mocklistTowns;
 TownsServiceClient.prototype.createTown = mockCreateTown;
+TownsServiceClient.prototype.townInfo = mockTownInfo;
 Video.setup = mockVideoSetup;
 const listTowns = (suffix: string) => Promise.resolve({
   towns: [
@@ -164,6 +166,8 @@ describe('Town Selection - depends on Part 1 passing', () => {
         });
 
         // Check for call sequence
+        await waitFor(() => expect(mockTownInfo)
+        .toBeCalledWith({coveyTownID}));
         await waitFor(() => expect(mockVideoSetup)
           .toBeCalledWith(userName, coveyTownID));
         await waitFor(() => expect(doLoginMock)
